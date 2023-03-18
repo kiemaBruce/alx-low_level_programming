@@ -4,12 +4,12 @@
 4-puts.c - prints exactly "Programming is like building a multilingual puzzle, followed by a new line.
 5-printf.c - prints exactly with proper grammar, but the outcome is a piece of art,, followed by a new line.
 
-#6-size.c
+# 6-size.c
 Prints the size of various types on the computer it is compiled and run on.
-##a.out
+## a.out
 64-bit executable
-##size32
+## size32
 32-bit execuatble
-##size64
+## size64
 64-bit executable
 
