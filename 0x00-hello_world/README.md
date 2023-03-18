@@ -21,3 +21,5 @@ Prints the size of various types on the computer it is compiled and run on.
 ### 	size64
 	64-bit executable
 
+## 100-intel
+Generates the assembly code (Intel syntax) of a C code and saves it in an output file.
