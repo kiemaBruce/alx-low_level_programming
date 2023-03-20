@@ -7,12 +7,12 @@
   */
 int main(void)
 {
-	char x = 48;
+	int x = 48;
 
 	while (x < 58)
 	{
 		putchar(x);
-		if(x == 57)
+		if (x == 57)
 		{
 			break;
 		}
@@ -20,6 +20,6 @@ int main(void)
 		putchar(' ');
 		x++;
 	}
-	putchar('$');
+	/* putchar('$'); */
 	return (0);
 }
