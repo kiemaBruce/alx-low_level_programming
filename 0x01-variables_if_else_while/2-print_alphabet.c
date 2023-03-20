@@ -11,7 +11,8 @@ int main(void)
 	
 	while (a < 123)
 	{
-		printf("%c\n",a);
+		putchar(a);
+		putchar('\n');
 		a++;
 	}
 	return (0);
