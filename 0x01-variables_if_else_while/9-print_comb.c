@@ -20,6 +20,6 @@ int main(void)
 		putchar(' ');
 		x++;
 	}
-	/* putchar('$'); */
+	putchar('$');
 	return (0);
 }
