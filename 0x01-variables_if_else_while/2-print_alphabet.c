@@ -8,11 +8,10 @@
 int main(void)
 {
 	char a = 'a';
-	
+
 	while (a < 123)
 	{
 		putchar(a);
-		putchar('\n');
 		a++;
 	}
 	return (0);
