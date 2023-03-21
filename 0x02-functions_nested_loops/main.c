@@ -7,9 +7,9 @@
   */
 int main(void)
 {
-	char a = 'A';
+	int a = 100;
 	/* print_alphabet(); */
 	/* print_alphabet_x10(); */
-	printf("%d", _islower(a));
+	printf("%d", _isalpha(a));
 	return (0);
 }

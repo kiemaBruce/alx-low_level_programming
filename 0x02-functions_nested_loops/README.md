@@ -6,3 +6,5 @@ Prints the alphabet, in lowercase, followed by a new line.
 Prints 10 times the alphabet, in lowercase, followed by a new line.
 ## 3-islower.c
 Checks for lowercase character.
+## 4-isalpha.c
+checks for alphabetic character.
