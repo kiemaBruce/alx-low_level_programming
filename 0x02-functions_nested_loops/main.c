@@ -7,7 +7,7 @@
   */
 int main(void)
 {
-	int a = 100;
+	int a = 0;
 	/* print_alphabet(); */
 	/* print_alphabet_x10(); */
 	/* printf("%d", _isalpha(a)); */

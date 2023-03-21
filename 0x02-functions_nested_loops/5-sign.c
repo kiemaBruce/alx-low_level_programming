@@ -14,7 +14,8 @@ int print_sign(int n)
 		return (1);
 	} else if (n == 0)
 	{
-		putchar('0');
+		putchar(48);
+		/* putchar('\b'); */
 		return (0);
 	} else
 	{
