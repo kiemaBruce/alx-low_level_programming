@@ -10,5 +10,6 @@ int print_last_digit(int a)
 {
 	int mod = a % 10;
 
+	_putchar(mod+'0');
 	return (mod);
 }
