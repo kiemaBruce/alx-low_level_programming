@@ -7,10 +7,11 @@
   */
 int main(void)
 {
-	int a = 100;
+	/* int a = 100; */
 	/* print_alphabet(); */
 	/* print_alphabet_x10(); */
 	/* printf("%d", _isalpha(a)); */
-	print_sign(a);
+	/* print_sign(a); */
+	printf("%d",_abs(0));
 	return (0);
 }

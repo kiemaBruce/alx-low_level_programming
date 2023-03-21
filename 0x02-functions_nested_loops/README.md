@@ -10,3 +10,5 @@ Checks for lowercase character.
 Checks for alphabetic character.
 ## 5-sign.c
 Prints the sign of a number.
+## 6-abs.c
+Computes the absolute value of an integer.
