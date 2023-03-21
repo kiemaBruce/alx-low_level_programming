@@ -7,7 +7,9 @@
   */
 int main(void)
 {
+	char a = 'A';
 	/* print_alphabet(); */
-	print_alphabet_x10();
+	/* print_alphabet_x10(); */
+	printf("%d", _islower(a));
 	return (0);
 }
