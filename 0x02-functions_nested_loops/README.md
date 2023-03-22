@@ -16,3 +16,5 @@ Computes the absolute value of an integer.
 Returns the last digit of a number.
 ## 10-add.c
 Adds two integers and returns the result.
+## 11-print_to_98.c
+Prints all natural numbers from n to 98, followed by a new line.
