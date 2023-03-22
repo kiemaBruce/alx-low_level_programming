@@ -27,6 +27,7 @@ int main(void)
 	/* printf("%d", add(9,10)); */
 	/* print_to_98(105); */
 	/* times_table(); */
-	jack_bauer();
+	/* jack_bauer(); */
+	print_times_table(16);
 	return (0);
 }
