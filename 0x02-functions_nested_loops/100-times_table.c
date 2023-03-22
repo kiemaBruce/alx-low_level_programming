@@ -1,14 +1,15 @@
 #include "main.h"
 
 /**
-  * times_table - prints the 9 times table, starting with 0
+  * print_times_table - prints the 9 times table, starting with 0
+  * @n: print times table up to n
   */
 void print_times_table(int n)
 {
 	if (n > 15 || n < 0)
 	{
 		return;
-	} else 
+	} else if (n <=	 15 && n >= 0)
 	{
 		int i = 0;
 		int a = 0;
@@ -28,7 +29,7 @@ void print_times_table(int n)
 					} else if (res >= 10 && res < 100)
 					{
 						printf(",  ");
-					}else if (res >= 100)
+					} else if (res >= 100)
 					{
 						printf(", ");
 					}
