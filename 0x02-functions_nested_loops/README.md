@@ -14,3 +14,5 @@ Prints the sign of a number.
 Computes the absolute value of an integer.
 ## 7-print_last_digit.c
 Returns the last digit of a number.
+## 10-add.c
+Adds two integers and returns the result.
