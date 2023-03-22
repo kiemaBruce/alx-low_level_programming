@@ -14,6 +14,8 @@ Prints the sign of a number.
 Computes the absolute value of an integer.
 ## 7-print_last_digit.c
 Returns the last digit of a number.
+## 9-times_table.c
+Prints the 9 times table, starting with 0.
 ## 10-add.c
 Adds two integers and returns the result.
 ## 11-print_to_98.c
