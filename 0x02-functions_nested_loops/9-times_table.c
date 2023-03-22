@@ -16,37 +16,6 @@ void times_table(void)
 			if (i != 0)
 			{
 				res = n * i;
-				/* if (i != 9) */
-				/*{*/
-					if (res <= 9)
-					{
-						printf(",  ");
-					} else if (res >= 10)
-					{
-						printf(", ");
-					}
-				/*}*/
-				printf("%d", res);
-			} else 
-			{
-				res = n * i;
-				printf("%d", res);
-			}
-			/* res = n * i; */
-
-			/* printf("%d", res); */
-			/* checker = 1; */
-
-			/* if (res <= 9 && res != 0)
-			{
-				printf(",  ");
-			} else if (res >= 10 && res != 0)
-			{
-				printf(", ");
-			}*/
-			/*printf("%d", res);*/
-			/*if (i != 9)
-			{
 				if (res <= 9)
 				{
 					printf(",  ");
@@ -54,23 +23,16 @@ void times_table(void)
 				{
 					printf(", ");
 				}
-			}*/
+				printf("%d", res);
+			} else
+			{
+				res = n * i;
+				printf("%d", res);
+			}
 			i++;
 		}
 		n++;
 		i = 0;
 		printf("\n");
 	}
-	/**
-	* while (i < 10)
-	* {
-	*	int prod = 9 * i;
-	*	_putcihar(prod + '0');
-	*	_putchar(',');
-	*	_putchar(' ');
-	*	_putchar(' ');
-	*	_putchar('\n');
-	*	i++;
-	*}
-	*/
 }
