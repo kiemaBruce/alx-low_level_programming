@@ -15,6 +15,6 @@ int main(void)
 	/* printf("%d",_abs(a)); */
 	/* printf("%d",print_last_digit(a)); */
 	/* printf("%d", add(9,10)); */
-	print_to_98(5);
+	print_to_98(105);
 	return (0);
 }
