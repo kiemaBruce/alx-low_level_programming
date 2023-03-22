@@ -9,17 +9,19 @@
 int print_last_digit(int a)
 {
 	int ret, mod;
+
 	ret = 1;
 
 	mod = a % 10;
-	if (mod < 0){
+	if (mod < 0)
+	{
 		ret = 0 - mod;
-	} else 
+	} else
 	{
 		ret = mod;
 	}
 
-	/* _putchar('0' + ret); */
-	printf("%d", ret);
+	_putchar('0' + ret);
+	/* printf("%d", ret); */
 	return (ret);
 }

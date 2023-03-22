@@ -16,13 +16,13 @@ int main(void)
 	/* printf("%d",_abs(a)); */
 	/* printf("%d",print_last_digit(a)); */
 
-	/*
-	a = print_last_digit(-88);
-	_putchar('0' + a);
+	
+	a = print_last_digit(0);
+	/*_putchar('0' + a);
 	_putchar('\n');
 	*/
 
-	a = print_last_digit(INT_MIN);
+	/* a = print_last_digit(INT_MIN); */
 	/* printf("%d",INT_MIN * -1);*/
 	putchar('0' + a);
 	putchar('\n');
