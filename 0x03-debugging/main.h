@@ -1,11 +1,8 @@
-#ifndef PUTCHAR_SEEN
-#define PUTCHAR_SEEN
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
 
 void positive_or_negative(int i);
 
-#endif
+#endif /* MAIN_H */
