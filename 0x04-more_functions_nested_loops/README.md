@@ -16,3 +16,6 @@ Draws a straight line in the terminal.
 Draws a diagonal line on the terminal.
 ## 8-print_square.c
 Prints a square, followed by a new line.
+## 9-fizz_buzz.c
+Prints the numbers 0 to 100, but prints Fizz for multiples of three, Buzz for
+multiples of five and FizzBuzz for multiples of both three and five.
