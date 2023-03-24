@@ -1,6 +1,6 @@
 #include "main.h"
 
-void fizz_buzz(void)
+int main(void)
 {
 	int i, n;
 
@@ -30,4 +30,5 @@ void fizz_buzz(void)
 		}
 	}
 	printf("\n");
+	return (0);
 }
