@@ -6,6 +6,12 @@
   */
 void print_triangle(int size)
 {
+	if (size <= 0)
+	{
+		_putchar('\n');
+		return;
+	}
+
 	int n, i, b, h, s;
 
 	/*Initiatlly the number of spaces printed is zero for each new line*/
@@ -22,7 +28,6 @@ void print_triangle(int size)
 			_putchar(' ');
 			s++;
 		}
-
 		/*
 		 *The number of hashes printed to make the triangle is one less
 		 * than the number of spaces printed on that line
