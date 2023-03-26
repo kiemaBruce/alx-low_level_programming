@@ -5,7 +5,7 @@
   */
 void print_most_numbers(void)
 {
-	int a = 47;
+	int a = 48;
 
 	while (a < 58)
 	{
@@ -15,4 +15,5 @@ void print_most_numbers(void)
 		}
 		a = a + 1;
 	}
+	_putchar('\n');
 }
