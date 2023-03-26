@@ -6,13 +6,13 @@
   */
 void print_triangle(int size)
 {
+	int n, i, b, h, s;
+
 	if (size <= 0)
 	{
 		_putchar('\n');
 		return;
 	}
-
-	int n, i, b, h, s;
 
 	/*Initiatlly the number of spaces printed is zero for each new line*/
 	s = 0;
