@@ -12,9 +12,8 @@ void print_rev(char *s)
 	slength = _strlen(s);
 	/*storS = s;*/
 
-	for (i = 0; i <= slength; i++)
+	for (i = 1; i <= slength; i++)
 	{
-		/*storS[i] = s[slength - i];*/
 		_putchar(s[slength - i]);
 	}
 	_putchar('\n');
