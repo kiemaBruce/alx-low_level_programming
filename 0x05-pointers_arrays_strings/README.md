@@ -17,3 +17,5 @@ followed by a new line.
 Prints half of a string, followed by a new line.
 ## 8-print_array.c
 Prints the first n elements of an array of integers, followed by a new line.
+## 9-strcpy.c
+Copies a string to a buffer
