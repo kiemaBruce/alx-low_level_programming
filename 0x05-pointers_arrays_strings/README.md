@@ -13,3 +13,5 @@ Reverses a string.
 ## 6-puts2.c
 Prints every other character of a string, starting with the first character,
 followed by a new line.
+## 7-puts_half.c
+Prints half of a string, followed by a new line.
