@@ -8,18 +8,31 @@
   */
 void puts2(char *str)
 {
-	int i;
+	int i, length, b;
 
 	i = 0;
+	length = 0;
+
+	while (str[i])
+	{
+		length++;
+		i++;
+	}
+	for (b = 0; b <= length; b = b + 2)
+	{
+		_putchar(str[b]);
+	}
 	/**
 	  *The condition basically returns 1 or true when there's a value
 	  apart from \0 at that index, and returns 0 or false when there is no
 	  *value or it encounters the \0 character.
 	  */
-	while (str[i])
-	{
-		_putchar(str[i]);
-		i = i + 2;
-	}
+	/**
+	  *while (str[i])
+	  *{
+	  *	_putchar(str[i]);
+	  *	i = i + 2;
+	  *}
+	  */
 	_putchar('\n');
 }
