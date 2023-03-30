@@ -6,3 +6,5 @@ Concatenates two strings but only up to the nth character of the source string.
 Copies a string.
 ## 3-strcmp.c
 Compares two strings.
+## 4-rev_array.c
+Reverses the content of an array of integers.
