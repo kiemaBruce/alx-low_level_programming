@@ -12,3 +12,5 @@ Reverses the content of an array of integers.
 Changes all lowercase letters of a string to uppercase.
 ## 6-cap_string.c
 Capitalizes all words of a string.
+## 101-print_number.c
+Prints an integer.
