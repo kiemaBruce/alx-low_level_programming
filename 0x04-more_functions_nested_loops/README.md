@@ -21,3 +21,5 @@ Prints the numbers 0 to 100, but prints Fizz for multiples of three, Buzz for
 multiples of five and FizzBuzz for multiples of both three and five.
 ## 10-print_triangle.c
 Prints a triangle, followed by a new line.
+## 101-print_number.c
+Prints an integer.

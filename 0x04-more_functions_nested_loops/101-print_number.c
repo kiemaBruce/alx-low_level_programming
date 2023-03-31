@@ -34,11 +34,11 @@ void print_number(int n)
 		i = b - (i * (raise(10, r)));
 		if ((det_digits(i)) != r)
 		{
-			int diff, i;
+			int diff, u;
 
 			diff = r - (det_digits(i));
 
-			for (i = 1; i < diff; i++)
+			for (u = 1; u <= diff; u++)
 			{
 				_putchar(48);
 			}
@@ -56,6 +56,14 @@ int det_digits(int x)
 {
 	int i = 0;
 
+	if (x == 0)
+	{
+		return (0);
+	}
+	if (x < 0)
+	{
+		x = 0 - x;
+	}
 	while (x >= 1)
 	{
 		x = x / 10;
@@ -75,7 +83,13 @@ int raise(int x, int y)
 {
 	int i, res;
 
+	if (y == 0)
+	{
+		res = 1;
+		return (res);
+	}
 	res = x;
+
 	for (i = 1; i < y; i++)
 	{
 		res = res * x;
