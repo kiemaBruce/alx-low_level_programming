@@ -19,6 +19,7 @@ char *cap_string(char *s)
 	{
 		if (s[i] > 96 && s[i] < 123)
 		{
+			/*Check for word separators*/
 			if (s[i - 1] == ' ' || s[i - 1] == ',' || s[i - 1] ==
 					';' || s[i - 1] == '.' || s[i - 1] ==
 					'!' || s[i - 1] == '?' || s[i - 1] ==
@@ -26,6 +27,11 @@ char *cap_string(char *s)
 					')' || s[i - 1] == '{' || s[i - 1] ==
 					'}' || s[i - 1] == '\n' || s[i - 1] ==
 					'\t')
+			{
+				s[i] = s[i] - 32;
+			}
+			/*Check for beginning of sentences*/
+			if (i == 0)
 			{
 				s[i] = s[i] - 32;
 			}
