@@ -10,5 +10,8 @@ char *string_toupper(char *);
 char *cap_string(char *);
 char *rot13(char *);
 void print_number(int n);
+int _putchar(char c);
+int det_digits(int x);
+int raise(int x, int y);
 
 #endif /* MAIN_H */
