@@ -44,7 +44,7 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		if (i == (slen - 1))
 		{
-			r = slen - 1;
+			r = slen;
 		}
 	}
 	return (r);
