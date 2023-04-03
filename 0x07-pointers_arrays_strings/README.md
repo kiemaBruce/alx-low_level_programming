@@ -10,4 +10,9 @@ behaviour.
 ## 2-strchr.c
 - Locates a character in a string.
 - Returns a pointer to the first occurrence of the character c in the string s,
-or NULL if the character is not found 
+or NULL if the character is not found.
+## 3-strspn.c
+- Gets the length of a prefix substring.
+- Returns the number of bytes in the initial segment of s which consist only of
+bytes from accept.
+
