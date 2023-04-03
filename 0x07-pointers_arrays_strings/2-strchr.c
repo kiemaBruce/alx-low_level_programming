@@ -10,8 +10,9 @@
 char *_strchr(char *s, char c)
 {
 	int slength, i;
-	char *p = 0;
+	char *p;
 
+	*p = 0;
 	slength = 0;
 
 	while (s[slength])
