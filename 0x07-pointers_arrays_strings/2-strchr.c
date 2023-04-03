@@ -10,7 +10,7 @@
 char *_strchr(char *s, char c)
 {
 	int slength, i;
-	char *p = NULL;
+	char *p = 0;
 
 	slength = 0;
 
