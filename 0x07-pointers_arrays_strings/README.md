@@ -7,3 +7,7 @@ byte b, and then returns a pointer to s (functions similarly to memset).
 - Returns a pointer to dest.
 - src and dest memory areas must not overlap or it might cause undesired
 behaviour.
+## 2-strchr.c
+- Locates a character in a string.
+- Returns a pointer to the first occurrence of the character c in the string s,
+or NULL if the character is not found 
