@@ -3,3 +3,5 @@
 - Prototype: void _puts_recursion(char *s);
 ## 1-print_rev_recursion.c
 - Prints a string in reverse.
+## 2-strlen_recursion.c
+- Returns the length of a string using recursion.
