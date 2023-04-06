@@ -5,3 +5,5 @@
 - Prints a string in reverse.
 ## 2-strlen_recursion.c
 - Returns the length of a string using recursion.
+## 3-factorial.c
+- Returns the factorial of a number.
