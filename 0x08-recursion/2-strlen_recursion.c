@@ -7,8 +7,6 @@
   */
 int _strlen_recursion(char *s)
 {
-	const int i = 0;
-
 	if (*s == '\0')
 	{
 		return (0);
