@@ -8,11 +8,12 @@ void _puts_recursion(char *s)
 {
 	const int i = 0;
 
-	_putchar(s[i]);
+	/*_putchar(s[i]);*/
 	if (*s == '\0')
 	{
 		_putchar('\n');
 		return;
 	}
+	_putchar(s[i]);
 	_puts_recursion((s + 1));
 }
