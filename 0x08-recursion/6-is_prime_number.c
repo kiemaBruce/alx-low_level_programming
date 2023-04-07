@@ -4,13 +4,14 @@
   * is_prime_number - checks whether a number is a prime number
   * @n: the number to be checked
   *
-  * Return: 1 if the number is a prime number and 0 if it's not
+  * Return: 1 if the number is a prime number and 0 if it's not. Negative
+  * numbers are not considered to be primes.
   */
 int is_prime_number(int n)
 {
 	if (n < 0)
 	{
-		n = 0 - n;
+		return (-1);
 	}
 	return (checkPrime(n, n));
 }
