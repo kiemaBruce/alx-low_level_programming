@@ -23,3 +23,7 @@
 - Checks whether a number is a prime number or not.
 - Returns 1 if the input integer is a prime number, otherwise returns 0.
 - Prototype: int is_prime_number(int n);
+## 100-is_palindrome.c
+- Returns 1 if a string is a palindrome and 0 if not.
+- An empty string is considered to be a palindrome.
+- Prototype: int is_palindrome(char *s);
