@@ -15,6 +15,10 @@
 - Returns the value of x raised to the power of y.
 - If y is lower than 0, the function returns -1.
 - Prototype: int _pow_recursion(int x, int y);
+## 5-sqrt_recursion.c
+- Returns the natural square root of a number.
+- If the number has no natural square root, the function returns (-1)
+- Prototype: int _sqrt_recursion(int n);
 ## 6-is_prime_number.c
 - Checks whether a number is a prime number or not.
 - Returns 1 if the input integer is a prime number, otherwise returns 0.
