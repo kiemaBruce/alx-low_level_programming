@@ -14,5 +14,8 @@ int getSqrt(float x, float y);
 int is_palindrome(char *s);
 int getLength(char *s, int i);
 int checkPal(char *s, int x, int y, int z);
+int wildcmp(char *s1, char *s2);
+int compS(char *s1, char *s2, int x, int y);
+int indexAdvancer(char *s1, char *s2, int X, int x, int y);
 
 #endif /* MAIN_H */

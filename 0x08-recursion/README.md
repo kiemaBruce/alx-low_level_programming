@@ -27,3 +27,9 @@
 - Returns 1 if a string is a palindrome and 0 if not.
 - An empty string is considered to be a palindrome.
 - Prototype: int is_palindrome(char *s);
+## 101-wildcmp.c
+- Compares two strings and returns 1 if the strings can be considered identical,
+  otherwise returns 0.
+- s2 can contain the special character * which can replace any character
+  (including an empty string)
+
