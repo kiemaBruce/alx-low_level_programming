@@ -3,3 +3,9 @@
 - Prototype: char *create_array(unsigned int size, char c);
 - Returns NULL if size = 0
 - Returns a pointer to the array, or NULL if it fails.
+## 1-strdup.c
+- Duplicates a string to a newly allocated space in memory.
+- Prototype: char *_strdup(char *str);
+- Returns NULL if str = NULL
+- On success, it returns a pointer to the duplicated string.
+- Returns NULL if insufficent memory was available.
