@@ -7,9 +7,9 @@
   *
   * Return: EXIT_SUCCESS on success
   */
-int main(int argc, char *argv[])
+int main(int argc, char __attribute__ ((unused)) *argv[])
 {
-	(void)argv;
+	/*(void)argv;*/
 	printf("%d\n", argc);
 	return (EXIT_SUCCESS);
 }
