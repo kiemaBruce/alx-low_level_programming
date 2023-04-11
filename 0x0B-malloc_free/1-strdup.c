@@ -19,17 +19,6 @@ char *_strdup(char *str)
 
 	slen = getLength(str);
 
-	/*Check for "" */
-	if (slen == 0)
-	{
-		return (NULL);
-	}
-	/*Check for '/0' */
-	if (str[0] == '\0')
-	{
-		return (NULL);
-	}
-
 	slen = getLength(str);
 	ps = malloc((slen + 1) * sizeof(char));
 
