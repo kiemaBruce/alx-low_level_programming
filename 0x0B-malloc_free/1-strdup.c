@@ -11,10 +11,20 @@ char *_strdup(char *str)
 	int slen, i;
 	char *ps;
 
+	/*Check for NULL string*/
 	if (!str)
 	{
 		return (NULL);
 	}
+
+	slen = getLength(str);
+
+	/*Check for "" */
+	if (slen == 0)
+	{
+		return (NULL);
+	}
+	/*Check for '/0' */
 	if (str[0] == '\0')
 	{
 		return (NULL);
