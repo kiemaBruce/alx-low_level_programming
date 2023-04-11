@@ -11,7 +11,7 @@ char *_strdup(char *str)
 	int slen, i;
 	char *ps;
 
-	if (str[0] == '\0')
+	if (str[0] == '\0' || str[0] == atoi("") || str == NULL)
 	{
 		return (NULL);
 	}
