@@ -16,13 +16,11 @@ char *str_concat(char *s1, char *s2)
 
 	if (!s1)
 	{
-		s1[0] = '\0';
-		/*s1len = 0;*/
+		s1 = "";
 	}
 	if (!s2)
 	{
-		s2[0] = '\0';
-		/*s2len = 0;*/
+		s2 = "";
 	}
 
 	s1len = getLength(s1);
