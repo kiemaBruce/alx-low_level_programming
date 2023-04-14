@@ -18,30 +18,30 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	s1 = nullChecker(s1);
 	s2 = nullChecker(s2);
 
-	if (n < strlen(s2))
+	if (n < getLength(s2))
 	{
-		s = malloc(strlen(s1) + (n * sizeof(char)));
+		s = malloc(getLength(s1) + (n * sizeof(char)));
 	}
-	s = malloc(strlen(s1) + strlen(s2));
+	s = malloc(getLength(s1) + getLength(s2));
 	if (s == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < strlen(s1); i++)
+	for (i = 0; i < getLength(s1); i++)
 	{
 		*(s + i) = s1[i];
 	}
 	b = 0;
 	if (n >= strlen(s2))
 	{
-		for (i = strlen(s1); i < (strlen(s1) + strlen(s2)); i++)
+		for (i = getLength(s1); i < (getLength(s1) + getLength(s2)); i++)
 		{
 			*(s + i) = s2[b];
 			b++;
 		}
 	}
 	b = 0;
-	for (i = strlen(s1); i < (strlen(s1) + n); i++)
+	for (i = getLength(s1); i < (getLength(s1) + n); i++)
 	{
 		*(s + i) = s2[b];
 		b++;
@@ -61,4 +61,21 @@ char *nullChecker(char *t)
 		return ("");
 	}
 	return (t);
+}
+/**
+  * getLength - determines the length of a string
+  * @s: the string whose length is to be determined
+  * Return: the length as an int
+  */
+int getLength(char *s)
+{
+	int i;
+
+	i = 0;
+
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }
