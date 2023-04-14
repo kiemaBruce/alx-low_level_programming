@@ -14,12 +14,14 @@ int **alloc_grid(int width, int height)
 	int i, j, a;
 	int **x;
 
+	x = NULL;
+
 	if (width < 0 || height < 0)
 	{
 		return (NULL);
 	}
 	/* Dynamically allocate space for all rows */
-	x = malloc(sizeof(int) * height);
+	x = malloc(sizeof(x) * height);
 
 	if (x == NULL)
 	{
@@ -33,7 +35,7 @@ int **alloc_grid(int width, int height)
 	  */
 	for (a = 0; a < width; a++)
 	{
-		x[a] = malloc(sizeof(int) * width);
+		x[a] = malloc(sizeof(*x) * width);
 	}
 	if (malloc(sizeof(int) * width) == NULL)
 	{
