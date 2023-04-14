@@ -12,6 +12,12 @@
 ## 2-str_concat.c
  - Concatenates two strings.
  - Returns a pointer to a newly allocated space in memory which contains the
- contents of s1, followed by the contents of s2, and null terminated.
+   contents of s1, followed by the contents of s2, and null terminated.
  - If NULL is passed, it is treated as an empty string.
  - Returns NULL on failure.
+## 3-alloc_grid.c
+- Returns a pointer to a 2 dimensional array of integers.
+- Prototype: int **alloc_grid(int width, int height);
+- Each element in the array is initialized to 0.
+- Returns NULL on failure.
+- Return NULL if width or height is negative.
