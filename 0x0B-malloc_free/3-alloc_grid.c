@@ -25,7 +25,6 @@ int **alloc_grid(int width, int height)
 	{
 		return (NULL);
 	}
-	printf("Hooray\n");
 
 	/**
 	  * Dynamically allocate space for each row element.
