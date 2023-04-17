@@ -13,3 +13,7 @@
 - If an element of d is NULL, it prints (nil) instead of this element. 
   (if name is NULL, it prints Name: (nil)).
 - Prints nothing if the struct is NULL.
+## 4-new_dog.c
+- Creates a new dog.
+- Prototype: dog_t *new_dog(char *name, float age, char *owner);
+- Returns NULL if the function fails.
