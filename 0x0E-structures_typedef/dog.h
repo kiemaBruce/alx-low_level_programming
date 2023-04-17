@@ -16,5 +16,7 @@ struct dog
 void init_dog(struct dog *d, char *name, float age, char *owner);
 int getLength(char *s);
 #include <stdlib.h>
+void print_dog(struct dog *d);
+#include <stdio.h>
 
 #endif /* dog_h */

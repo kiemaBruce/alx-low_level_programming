@@ -7,3 +7,9 @@
 ## 1-init_dog.c
 - Initializes a variable of type struct dog.
 - Prototype: void init_dog(struct dog *d, char *name, float age, char *owner);
+## 2-print_dog.c
+- Prints a struct dog.
+- Prototype: void print_dog(struct dog *d);
+- If an element of d is NULL, it prints (nil) instead of this element. 
+  (if name is NULL, it prints Name: (nil)).
+- Prints nothing if the struct is NULL.
