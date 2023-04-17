@@ -11,39 +11,29 @@
   */
 int **alloc_grid(int width, int height)
 {
-	int i, j, a;
-	int **x;
-
-	x = NULL;
+	int i;
+	int **arr;
 
 	if (width <= 0 || height <= 0)
 	{
 		return (NULL);
 	}
-	/* Dynamically allocate space for all rows */
-	x = malloc(sizeof(x) * height);
+	/* Array of pointers */
+	arr = malloc(sizeof(int *) * height);
 
-	if (x == NULL)
+	if (arr == NULL)
 	{
-		free(x);
 		return (NULL);
 	}
-	for (a = 0; a < width; a++)
+	/* One dimensional array of ints */
+	for (i = 0; i < height; i++)
 	{
-		x[a] = malloc(sizeof(*x) * width);
-	}
-	if (malloc(sizeof(int) * width) == NULL)
-	{
-		free(malloc(sizeof(*x) * width));
-		return (NULL);
-	}
-	/* initialize each array element to zero */
-	for (j = 0; i < height; j++)
-	{
-		for (i = 0; i < width; i++)
+		arr[i] = malloc(sizeof(int) * width);
+		if (arr[i] == NULL)
 		{
-			x[j][i] = 0;
+			return (NULL);
 		}
 	}
-	return (x);
+	return (arr);
+
 }
