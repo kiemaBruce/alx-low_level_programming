@@ -12,13 +12,14 @@
   */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int i, b;
+	unsigned int i;
+	int b;
 	char *s;
 
 	s1 = nullChecker(s1);
 	s2 = nullChecker(s2);
 
-	if (n < getLength(s2))
+	if (n < (unsigned int)getLength(s2))
 	{
 		s = malloc(getLength(s1) + (n * sizeof(char)));
 	}
@@ -27,14 +28,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < getLength(s1); i++)
+	for (i = 0; i < (unsigned int)getLength(s1); i++)
 	{
 		*(s + i) = s1[i];
 	}
 	b = 0;
 	if (n >= strlen(s2))
 	{
-		for (i = getLength(s1); i < (getLength(s1) + getLength(s2)); i++)
+		for (i = (unsigned int)getLength(s1);
+				i < (unsigned int)(getLength(s1) + getLength(s2)); i++)
 		{
 			*(s + i) = s2[b];
 			b++;
