@@ -21,3 +21,6 @@
 - Each element in the array is initialized to 0.
 - Returns NULL on failure.
 - Return NULL if width or height is negative.
+## 4-free_grid.c
+- Frees a 2 dimensional grid previously created by the alloc_grid function.
+- Prototype: void free_grid(int **grid, int height);
