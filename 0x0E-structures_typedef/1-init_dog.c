@@ -15,12 +15,20 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 	ownlen = getLength(owner);
 
 	d->name = malloc(sizeof(char) * nlen);
+	if ((d->name) == NULL)
+	{
+		return;
+	}
 	/* Copy name string to struct dog */
 	for (i = 0; i < nlen; i++)
 	{
 		(d->name)[i] = name[i];
 	}
 	d->owner = malloc(sizeof(char) * ownlen);
+	if (d->owner == NULL)
+	{
+		return;
+	}
 	/* Copy owner string to struct dog */
 	for (i = 0; i < ownlen; i++)
 	{
