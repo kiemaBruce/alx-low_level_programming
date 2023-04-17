@@ -18,5 +18,6 @@ int getLength(char *s);
 #include <stdlib.h>
 void print_dog(struct dog *d);
 #include <stdio.h>
+typedef struct dog dog_t;
 
 #endif /* dog_h */
