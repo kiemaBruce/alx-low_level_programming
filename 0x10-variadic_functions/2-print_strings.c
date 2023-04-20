@@ -16,12 +16,20 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		if ((checkForNull(n, args)) == 1)
+		/*
+		*if ((checkForNull(n, args)) == 1)
+		*{
+		*	printf("(nil)\n");
+		*	return;
+		*}
+		*/
+		s = va_arg(args, char *);
+
+		if (s == NULL)
 		{
 			printf("(nil)\n");
 			return;
 		}
-		s = va_arg(args, char *);
 
 		slen = getLength(s);
 		for (j = 0; j < slen; j++)
