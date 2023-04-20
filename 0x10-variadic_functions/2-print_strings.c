@@ -16,12 +16,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		s = va_arg(args, char *);
-		if (s == NULL)
+		if ((checkForNull(n, args)) == 1)
 		{
-			printf("(nil)");
-			break;
+			printf("(nil)\n");
+			return;
 		}
+		s = va_arg(args, char *);
+
 		slen = getLength(s);
 		for (j = 0; j < slen; j++)
 		{
@@ -37,6 +38,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		}
 	}
 	_putchar('\n');
+	va_end(args);
 }
 /**
   * getLength - determines the length of a string
@@ -54,4 +56,30 @@ int getLength(char *s)
 		len++;
 	}
 	return (len);
+}
+/**
+  * checkForNull - checks whether any of the strings arguments passed is NULL
+  * @n: the number of string arguments to be passed
+  * @args: variable list of arguments of type va_list
+  * Return: 0 if no string argument is null, 1 if one or more of the string
+  * arguments passed is NULL
+  */
+int checkForNull(unsigned int n, va_list args)
+{
+	unsigned int i;
+	int r;
+	char *s;
+
+	r = 0;
+
+	for (i = 0; i < n; i++)
+	{
+		s = va_arg(args, char *);
+		if (s == NULL)
+		{
+			r = 1;
+			break;
+		}
+	}
+	return (r);
 }
