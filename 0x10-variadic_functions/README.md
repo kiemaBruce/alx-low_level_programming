@@ -16,3 +16,12 @@
 - and n is the number of strings passed to the function
 - If separator is NULL, it's not printed
 - If one of the strings is NULL, the function prints (nil) instead.
+## 3-print_all.c
+- Prints anything.
+- Prototype: void print_all(const char * const format, ...);
+- where format is a list of types of arguments passed to the function
+	- c: char
+	- i: integer
+	- f: float
+	- s: char * (if the string is NULL, print (nil) instead
+	- any other char is ignored
