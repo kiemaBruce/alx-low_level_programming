@@ -20,7 +20,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (s == NULL)
 		{
 			printf("(nil)");
-			return;
+			break;
 		}
 		slen = getLength(s);
 		for (j = 0; j < slen; j++)
