@@ -68,6 +68,7 @@ int determiner(char c, va_list args)
 			if (s == NULL)
 			{
 				printf("(nil)");
+				return (0);
 			}
 			printf("%s", s);
 			return (0);
