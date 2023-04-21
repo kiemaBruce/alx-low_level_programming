@@ -10,7 +10,7 @@
   */
 void print_all(const char * const format, ...)
 {
-	int i, flen;
+	int i, flen, d;
 	va_list args;
 
 	i = 0;
@@ -22,17 +22,14 @@ void print_all(const char * const format, ...)
 
 	while (i < flen)
 	{
-		determiner(format[i], args);
+		d = determiner(format[i], args);
+
 		if (i != (flen - 1))
 		{
-			printf(", ");
-			/**
-			  *if (determiner(format[i], args) == 0)
-			  *{
-				*printf(", ");
-
-			  *}
-			  */
+			if (d == 0)
+			{
+				printf(", ");
+			}
 		}
 		i++;
 	}
@@ -54,13 +51,23 @@ int determiner(char c, va_list args)
 	switch (c)
 	{
 		case 'c':
-			printf("%c", va_arg(args, int));
+			/**
+			  *va_arg only takes fully promoted types, i.e.,
+			  *int in this case, hence have to
+			  *cast it back to char
+			  */
+			printf("%c", (char)va_arg(args, int));
 			return (0);
 		case 'i':
 			printf("%d", va_arg(args, int));
 			return (0);
 		case 'f':
-			printf("%f", va_arg(args, double));
+			/**
+			  *va_arg only takes fully promoted types, i.e.,
+			  *double in this case, hence have to
+			  *cast it back to float
+			  */
+			/*printf("%f", (float)va_arg(args, double));*/
 			return (0);
 		case 's':
 			s = va_arg(args, char *);
