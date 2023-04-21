@@ -15,24 +15,17 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 
-	while (format != NULL)
+	flen = getLength((char *)format);
+	va_start(args, format);
+
+	while (i < flen)
 	{
-		flen = getLength((char *)format);
-		va_start(args, format);
-
-		while (i < flen)
+		d = determiner(format[i], args);
+		if ((i != (flen - 1)) && d == 0)
 		{
-			d = determiner(format[i], args);
-
-			if (i != (flen - 1))
-			{
-				if (d == 0)
-				{
-					printf(", ");
-				}
-			}
-			i++;
+			printf(", ");
 		}
+		i++;
 	}
 	printf("\n");
 	va_end(args);
