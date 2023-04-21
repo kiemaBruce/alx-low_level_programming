@@ -15,17 +15,22 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 
-	flen = getLength((char *)format);
-	va_start(args, format);
-
-	while (i < flen)
+	while (format != NULL)
 	{
-		d = determiner(format[i], args);
-		if ((i != (flen - 1)) && d == 0)
+		flen = strlen(format);
+		/*flen = getLength((char *)format);*/
+		va_start(args, format);
+
+		while (i < flen)
 		{
-			printf(", ");
+			d = determiner(format[i], args);
+			if ((i != (flen - 1)) && d == 0)
+			{
+				printf(", ");
+			}
+			i++;
 		}
-		i++;
+		break;
 	}
 	printf("\n");
 	va_end(args);
@@ -81,15 +86,3 @@ int determiner(char c, va_list args)
   * @s: the string whose length is to be determined
   * Return: returns the length of the string as an int
   */
-int getLength(char *s)
-{
-	int i;
-
-	i = 0;
-
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
-}
