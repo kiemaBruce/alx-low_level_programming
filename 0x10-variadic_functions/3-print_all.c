@@ -15,23 +15,24 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 
-	flen = getLength((char *)format);
-
-	va_start(args, format);
-	/* va_arg(args, determiner(char c)); */
-
-	while (i < flen)
+	while (format != NULL)
 	{
-		d = determiner(format[i], args);
+		flen = getLength((char *)format);
+		va_start(args, format);
 
-		if (i != (flen - 1))
+		while (i < flen)
 		{
-			if (d == 0)
+			d = determiner(format[i], args);
+
+			if (i != (flen - 1))
 			{
-				printf(", ");
+				if (d == 0)
+				{
+					printf(", ");
+				}
 			}
+			i++;
 		}
-		i++;
 	}
 	printf("\n");
 	va_end(args);
@@ -67,7 +68,7 @@ int determiner(char c, va_list args)
 			  *double in this case, hence have to
 			  *cast it back to float
 			  */
-			/*printf("%f", (float)va_arg(args, double));*/
+			printf("%f", (float)va_arg(args, double));
 			return (0);
 		case 's':
 			s = va_arg(args, char *);
