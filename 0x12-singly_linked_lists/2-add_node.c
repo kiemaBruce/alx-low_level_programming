@@ -16,8 +16,33 @@ list_t *add_node(list_t **head, const char *str)
 	{
 		return (NULL);
 	}
-	new->str = strdup(str);
+	if (str == NULL)
+	{
+		new->str = strdup("(nil)");
+	}
+	if (str != NULL)
+	{
+		new->str = strdup(str);
+	}
+	new->len = getLength(str);
 	new->next = (*head);
 	(*head) = new;
 	return (new);
+}
+/**
+  * getLength - determines the length of a string
+  * @s: the string whose length is to be determined
+  * Return: the length as an unsigned int
+  */
+unsigned int getLength(const char *s)
+{
+	int i;
+
+	i = 0;
+
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }
