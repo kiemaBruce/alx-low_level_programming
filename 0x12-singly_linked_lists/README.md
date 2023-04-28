@@ -15,3 +15,6 @@
 - Prototype: list_t *add_node_end(list_t **head, const char *str);
 - Returns the address of the new element, or NULL if it failed.
 - str is duplicated.
+## 4-free_list.c
+- Frees a list_t list.
+- Prototype: void free_list(list_t *head);
