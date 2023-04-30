@@ -16,3 +16,6 @@
 ## 4-free_listint.c
 - Frees a listint_t list.
 - Prototype: void free_listint(listint_t *head);
+## 5-free_listint2.c
+- Frees a listint_t list and sets the head to NULL.
+- Prototype: void free_listint2(listint_t **head);
