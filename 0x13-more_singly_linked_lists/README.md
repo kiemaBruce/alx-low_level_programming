@@ -5,3 +5,7 @@
 ## 1-listint_len.c
 - Returns the number of elements in a linked listint_t list.
 - Prototype: size_t listint_len(const listint_t *h);
+## 2-add_nodeint.c
+- Adds a new node at the beginning of a listint_t list.
+- Prototype: listint_t *add_nodeint(listint_t **head, const int n);
+- Returns the address of the new element, or NULL if it failed.
