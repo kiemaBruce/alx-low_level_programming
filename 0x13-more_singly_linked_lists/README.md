@@ -19,3 +19,7 @@
 ## 5-free_listint2.c
 - Frees a listint_t list and sets the head to NULL.
 - Prototype: void free_listint2(listint_t **head);
+## 6-pop_listint.c
+- Deletes the head node of a listint_t linked list. 
+- Prototype: int pop_listint(listint_t **head);
+- Returns the head node’s data (n) or 0 if the linked list is empty.
