@@ -28,11 +28,6 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	} else
 	{
 		/* Traverse to the last node */
-		traverser = malloc(sizeof(listint_t));
-		if (traverser == NULL)
-		{
-			return (NULL);
-		}
 		traverser = *head;
 		while (traverser->next != NULL)
 		{
@@ -40,6 +35,5 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 		}
 		traverser->next = new;
 	}
-	free(traverser);
 	return (new);
 }
