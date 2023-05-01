@@ -29,3 +29,7 @@
 		index);
 - where index is the index of the node, starting at 0.
 - If the node does not exist, it returns NULL.
+## 8-sum_listint.c
+- Returns the sum of all the data (n) of a listint_t linked list.
+- Prototype: int sum_listint(listint_t *head);
+- If the list is empty it returns zero.
