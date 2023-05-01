@@ -23,3 +23,9 @@
 - Deletes the head node of a listint_t linked list. 
 - Prototype: int pop_listint(listint_t **head);
 - Returns the head node’s data (n) or 0 if the linked list is empty.
+## 7-get_nodeint.c
+- Returns the nth node of a listint_t linked list.
+- Prototype: listint_t *get_nodeint_at_index(listint_t *head, unsigned int
+		index);
+- where index is the index of the node, starting at 0.
+- If the node does not exist, it returns NULL.
