@@ -10,15 +10,15 @@ unsigned int binary_to_uint(const char *b)
 	int  i, len, c;
 	unsigned int r;
 
+	if (b == NULL)
+	{
+		return (0);
+	}
 	r = 0;
 	c = 0;
 	len = getLength(b);
 	i = len - 1;
 
-	if (b == NULL)
-	{
-		return (0);
-	}
 	while (i >= 0)
 	{
 		if (b[i] != '0' && b[i] != '1')
