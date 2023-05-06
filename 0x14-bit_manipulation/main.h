@@ -11,7 +11,7 @@
 struct binary_list
 {
 	int value;
-	int index;
+	unsigned long int index;
 	struct binary_list *next;
 };
 /**
@@ -31,6 +31,8 @@ bin_list *decimal_to_binary(unsigned long int n);
 int list_len(bin_list *head);
 bin_list *binEq(unsigned long int u);
 void print_list(bin_list *h);
-int bin_length(unsigned int n);
+unsigned long int bin_length(unsigned int n);
+int set_bit(unsigned long int *n, unsigned int index);
+char *create_binary_string(bin_list *h, unsigned long int binLen);
 
 #endif /* MAIN_H */
