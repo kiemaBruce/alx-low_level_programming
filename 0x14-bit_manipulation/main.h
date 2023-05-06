@@ -34,5 +34,6 @@ void print_list(bin_list *h);
 unsigned long int bin_length(unsigned int n);
 int set_bit(unsigned long int *n, unsigned int index);
 char *create_binary_string(bin_list *h, unsigned long int binLen);
+int clear_bit(unsigned long int *n, unsigned int index);
 
 #endif /* MAIN_H */
