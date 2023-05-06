@@ -21,7 +21,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 
 	if (p == 0)
 	{
-		binLen = 20;;
+		binLen = 20;
 	} else
 	{
 		while (p > 0)
