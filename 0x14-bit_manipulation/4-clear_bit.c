@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+  * clear_bit - sets the value of a bit to 0 at a given index.
+  * @n: the decimal number whose binary equivalent is to be manipulated.
+  * @index: the position, starting from 0, of the bit that is to be adjusted to
+  * 0.
+  * Return: the decimal equivalent of the adjusted number.
+  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int binLen, p;
