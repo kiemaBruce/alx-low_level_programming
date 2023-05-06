@@ -64,6 +64,10 @@ bin_list *binEq(unsigned long int u)
 		for (c = 0; c < 20; c++)
 		{
 			new = malloc(sizeof(bin_list));
+			if (new == NULL)
+			{
+				return (NULL);
+			}
 			if (c == 0)
 			{
 				head = new;
