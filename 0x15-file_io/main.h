@@ -1,0 +1,15 @@
+#ifndef MAIN_H
+#define MAIN_H
+
+#include <stddef.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
+
+ssize_t read_textfile(const char *filename, size_t letters);
+int _puts(char *str);
+int _strlen(char *s);
+int _putchar(char c);
+
+#endif /* MAIN_H */
