@@ -23,7 +23,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	file = fopen(filename, O_RDONLY);
+	/*file = fopen(filename, O_RDONLY);*/
 	buf = malloc(letters * sizeof(char));
 	if (buf == NULL)
 	{
@@ -36,6 +36,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	putsret = _puts(buf);
 	free(buf);
+	close(fd);
 	if (putsret == -1)
 	{
 		return (0);
