@@ -27,7 +27,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	/* Return -1 if file does not exist */
 	if (fp == NULL)
 	{
-		fclose(fp);
+		/*fclose(fp);*/
 		return (-1);
 	}
 	fd = open(filename, O_APPEND | O_RDWR);
