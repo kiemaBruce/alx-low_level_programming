@@ -19,3 +19,8 @@
 - If the file already exists it is truncated.
 - If filename is NULL it returns  -1.
 - If text_content is NULL, an empty file is created.
+## 2-append_text_to_file.c
+- Appends text at the end of a file.
+- Prototype: int append_text_to_file(const char *filename, char *text_content);
+- where filename is the name of the file and text_content is the NULL terminated
+  string to add at the end of the file.
