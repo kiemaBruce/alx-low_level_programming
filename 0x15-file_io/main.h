@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <errno.h>
+#include <string.h>
 
 ssize_t read_textfile(const char *filename, size_t letters);
 int _puts(char *str);
