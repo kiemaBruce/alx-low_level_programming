@@ -11,17 +11,11 @@
   */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *file = NULL;
 	char *buf = NULL;
-	ssize_t x;
-	int putsret, fd;
+	ssize_t x, w;
+	int fd;
 
 	if (filename == NULL)
-	{
-		return (0);
-	}
-	file = fopen(filename, "r");
-	if (file == NULL)
 		return (0);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
@@ -32,59 +26,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	x = read(fd, buf, letters);
 	if (x == -1)
 		return (0);
-	putsret = _puts(buf);
+	w = write(STDOUT_FILENO, buf, x);
+	if (w == -1)
+		return (0);
 	free(buf);
 	close(fd);
-	if (putsret == -1)
-		return (0);
 	return (x);
-}
-/**
- * _puts - prints a string, followed by a new line, to stdout
- * @str: the string to be printed
- * Return: 1 on success, -1 on error.
- */
-int _puts(char *str)
-{
-	int i, slen, r;
-
-	slen = _strlen(str);
-
-	for (i = 0; i < slen; i++)
-	{
-		r = _putchar(str[i]);
-		if (r == -1)
-			return (-1);
-	}
-	/*r = _putchar('\n');*/
-	return (r);
-}
-/**
- * _strlen - returns the length of a string
- * @s: the string whose length is to be determined
- * Return: the string length as an integer
- */
-int _strlen(char *s)
-{
-	int size, i;
-
-	size = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		size++;
-	}
-	return (size);
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(STDOUT_FILENO, &c, 1));
 }
