@@ -11,40 +11,32 @@
   */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	/*FILE *file = NULL;*/
+	FILE *file = NULL;
 	char *buf = NULL;
 	ssize_t x;
-	/*signed long int x;*/
 	int putsret, fd;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
-	/*fd = open(filename, O_RDWR);*/
+	file = fopen(filename, "r");
+	if (file == NULL)
+		return (0);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-	{
 		return (0);
-	}
-	/*file = fopen(filename, O_RDONLY);*/
 	buf = malloc(letters * sizeof(char));
 	if (buf == NULL)
-	{
 		return (0);
-	}
 	x = read(fd, buf, letters);
 	if (x == -1)
-	{
 		return (0);
-	}
 	putsret = _puts(buf);
 	free(buf);
 	close(fd);
 	if (putsret == -1)
-	{
 		return (0);
-	}
 	return (x);
 }
 /**
