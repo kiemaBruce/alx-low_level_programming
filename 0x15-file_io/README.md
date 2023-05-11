@@ -24,3 +24,11 @@
 - Prototype: int append_text_to_file(const char *filename, char *text_content);
 - where filename is the name of the file and text_content is the NULL terminated
   string to add at the end of the file.
+## 3-cp.c
+- Copies the content of a file to another file.
+- If the destination file does not exist, it is created with the rw-rw-r--
+  permissions. If it exists, its permissions are not modified.
+- The destination file is truncated before the contents of the source file are
+  copied into it.
+- It makes use of a buffer of 1024 bytes from the source file in order to
+  minimize the number of system calls that are made.
