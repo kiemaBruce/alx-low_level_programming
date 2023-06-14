@@ -23,14 +23,22 @@ int _atoi(char *s)
 	len = _strlen(sub);
 	p = len - 1;
 	res = 0;
-	for (p = len - 1; p >= 0; p--)
-	{
-		res = res + ((sub[i] - '0') * raise(10, p));
-		i++;
-	}
 	sig = signdeterminer(s);
 	if (sig == 1)
-		res = 0 - res;
+	{
+		for (p = len - 1; p >= 0; p--)
+		{
+			res = res + (-(sub[i] - '0') * raise(10, p));
+			i++;
+		}
+	} else
+	{
+		for (p = len - 1; p >= 0; p--)
+		{
+			res = res + ((sub[i] - '0') * raise(10, p));
+			i++;
+		}
+	}
 	return (res);
 }
 /**
