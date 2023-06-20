@@ -24,3 +24,7 @@
 ## 4-free_grid.c
 - Frees a 2 dimensional grid previously created by the alloc_grid function.
 - Prototype: void free_grid(int **grid, int height);
+## 100-argstostr.c
+- Concatenate all arguments of the program.
+- Each argument is followed by '\n' in the new string.
+- Prototype: char *argstostr(int ac, char **av);
