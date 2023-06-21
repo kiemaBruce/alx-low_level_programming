@@ -14,7 +14,7 @@ char **strtow(char *str)
 	int i, j, w, u, p;
 	int *wlengths;
 
-	if (str == NULL || (*str) == '\0')
+	if (str == NULL || (*str) == '\0' || (*str) == " ")
 		return (NULL);
 	wlengths = wordlengths(' ', str);
 	w = arrcount(wlengths);
