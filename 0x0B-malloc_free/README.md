@@ -28,3 +28,11 @@
 - Concatenate all arguments of the program.
 - Each argument is followed by '\n' in the new string.
 - Prototype: char *argstostr(int ac, char **av);
+## 101-strtow.c
+- Splits a string into words.
+- Prototype: char **strtow(char *str);
+- The SPACE character is used to separate the string into words.
+- The function returns pointer to an array of strings (words). If it fails, or
+  if str == NULL || *str == "", it returns NULL.
+- Each string is null-terminated.
+- The last element of the returned array is NULL.
