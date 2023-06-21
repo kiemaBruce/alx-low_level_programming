@@ -4,7 +4,8 @@
   * strtow - splits a string into words.
   * @str: the string that is to be split.
   * Description: the delimiter used is the SPACE character, and the words are
-  * stored in an array of strings.
+  * stored in an array of strings. The array has one extra memory slot malloced
+  * to it which is used to store NULL as the last element of the array.
   * Return: a pointer to the array of strings that contains the words.
   */
 char **strtow(char *str)
@@ -12,14 +13,11 @@ char **strtow(char *str)
 	char **array = NULL;
 	int i, j, w, u, p;
 	int *wlengths;
-	char delim;
 
 	if (str == NULL || (*str) == '\0')
 		return (NULL);
-	delim = ' ';
-	wlengths = wordlengths(delim, str);
+	wlengths = wordlengths(' ', str);
 	w = arrcount(wlengths);
-	/*The 1 is for the last NULL element of the array*/
 	array = malloc((w + 1) * sizeof(char *));
 	if (array == NULL)
 		return (NULL);
@@ -27,12 +25,15 @@ char **strtow(char *str)
 	while (i < w)
 	{
 		if (i == p)
+		{
 			array[i] = malloc((wlengths[i] + 1) * sizeof(char));
+			if (array[i] == NULL)
+				return (NULL);
+		}
 		p = i;
 		if (str[u] == ' ')
 		{
 			u++;
-			continue;
 		} else
 		{
 			j = 0;
