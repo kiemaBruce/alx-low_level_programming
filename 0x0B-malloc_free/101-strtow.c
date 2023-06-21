@@ -6,7 +6,8 @@
   * Description: the delimiter used is the SPACE character, and the words are
   * stored in an array of strings. The array has one extra memory slot malloced
   * to it which is used to store NULL as the last element of the array.
-  * Return: a pointer to the array of strings that contains the words.
+  * Return: a pointer to the array of strings that contains the words. It
+  * returns NULL if str = NULL || str = " ".
   */
 char **strtow(char *str)
 {
@@ -14,7 +15,7 @@ char **strtow(char *str)
 	int i, j, w, u, p;
 	int *wlengths;
 
-	if (str == NULL || (*str) == '\0' || (*str) == " ")
+	if (str == NULL || (*str) == '\0' || (str[0] == 32  && getLength(str) == 1))
 		return (NULL);
 	wlengths = wordlengths(' ', str);
 	w = arrcount(wlengths);
