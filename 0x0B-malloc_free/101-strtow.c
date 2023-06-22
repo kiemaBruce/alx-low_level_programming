@@ -12,8 +12,7 @@
 char **strtow(char *str)
 {
 	char **array = NULL;
-	int i, j, w, u, p;
-	int *wlengths;
+	int i, j, w, u, p, *wlengths;
 
 	if (str == NULL || (*str) == '\0' || (str[0] == 32  && getLength(str) == 1))
 		return (NULL);
@@ -50,6 +49,7 @@ char **strtow(char *str)
 		}
 	}
 	array[i] = NULL;
+	free(wlengths);
 	return (array);
 }
 /**
@@ -88,6 +88,7 @@ int *wordlengths(char delim, char *s)
 	if (delim == '\0' || s == NULL)
 		return (NULL);
 	w = wordcounter(delim, s);
+	printf("w: %d\n", w);
 	array = malloc((w + 1) * sizeof(int));
 	if (array == NULL)
 		return (NULL);
@@ -110,6 +111,7 @@ int *wordlengths(char delim, char *s)
 		i++;
 	}
 	/*Let the last array element be -1 to indicate the end of the array*/
+	printf("u: %d\n", u);
 	array[u] = -1;
 	return (array);
 }
