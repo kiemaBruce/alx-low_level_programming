@@ -38,13 +38,13 @@ char **strtow(char *str)
 		} else
 		{
 			j = 0;
-			while (str[u] != ' ')
+			while (str[u] != ' ' && str[u] != '\0')
 			{
 				array[i][j] = str[u];
 				u++;
 				j++;
 			}
-			if (array[i][j - 1] != '\0')
+			if (str[u] == ' ' || str[u] == '\0')
 				array[i][j] = '\0';
 			i++;
 		}
@@ -93,14 +93,13 @@ int *wordlengths(char delim, char *s)
 		return (NULL);
 	u = i = l = 0;
 
-	while (s[i] != '\0')
+	while (i <= getLength(s))
 	{
-		if (s[i] != ' ')
+		if (s[i] != ' ' && s[i] != '\0')
 		{
 			l++;
-		} else if (s[i] == ' ')
+		} else if (s[i] == ' ' || s[i] == '\0')
 		{
-			/*if (i != (len - 1) && i != 0)*/
 			if (l != 0 && i != 0)
 			{
 				array[u] = l;
@@ -129,9 +128,17 @@ int wordcounter(char delim, char *s)
 	w = 0;
 	for (i = 0; i < getLength(s); i++)
 	{
-		if (s[i] == ' ' && i != 0)
+		if (s[i] != ' ')
 		{
-			w++;
+			while (1)
+			{
+				if (s[i] == ' ' || s[i] == '\0')
+				{
+					w++;
+					break;
+				}
+				i++;
+			}
 		}
 	}
 	return (w);
