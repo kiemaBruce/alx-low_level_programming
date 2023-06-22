@@ -88,7 +88,6 @@ int *wordlengths(char delim, char *s)
 	if (delim == '\0' || s == NULL)
 		return (NULL);
 	w = wordcounter(delim, s);
-	printf("w: %d\n", w);
 	array = malloc((w + 1) * sizeof(int));
 	if (array == NULL)
 		return (NULL);
@@ -111,7 +110,6 @@ int *wordlengths(char delim, char *s)
 		i++;
 	}
 	/*Let the last array element be -1 to indicate the end of the array*/
-	printf("u: %d\n", u);
 	array[u] = -1;
 	return (array);
 }
