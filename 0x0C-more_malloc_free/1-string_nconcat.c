@@ -1,73 +1,58 @@
 #include "main.h"
 
 /**
-  * string_nconcat - concatenates two strings.
-  * @s1: first string
-  * @s2: second string
-  * @n: the number of bytes from s2 that are to be concatenated
-  * Description: the concatenated string is written to a new location in
-  * memory, and the string is null terminated
-  *
-  * Return: pointer to the concatenated string
+  * string_nconcat - concatenates two strings into a new string.
+  * @s1: the first string.
+  * @s2: the second string.
+  * @n: the first n bytes of s2 are to be copied into the new string. If n is
+  * greater than or equal to the length of s2, then the entire string s2 is
+  * copied into the new string that contains both s1 and s2.
+  * Return: if successful it returns a pointer to the new string. If it fails,
+  * it returns NULL.
   */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i;
-	int b;
-	char *s;
+	int tlength, i, j, c;
+	char *r;
 
-	s1 = nullChecker(s1);
-	s2 = nullChecker(s2);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-	if (n < (unsigned int)getLength(s2))
-	{
-		s = malloc(getLength(s1) + (n * sizeof(char)));
-	}
-	s = malloc(getLength(s1) + getLength(s2));
-	if (s == NULL)
-	{
+	if (n >= (unsigned int)getLength(s2))
+		tlength = getLength(s1) + getLength(s2);
+	else
+		tlength = getLength(s1) + n;
+	r = malloc((tlength + 1) * sizeof(char));
+	if (r == NULL)
 		return (NULL);
-	}
-	for (i = 0; i < (unsigned int)getLength(s1); i++)
+	j = 0;
+	/*
+	 *c is just used to indicate whether we are done with s1 or not. If
+	 *we are done copying s1 into the new location we now copy s2.
+	 */
+	c = 0;
+	for (i = 0; i < tlength; i++)
 	{
-		*(s + i) = s1[i];
-	}
-	b = 0;
-	if (n >= strlen(s2))
-	{
-		for (i = (unsigned int)getLength(s1);
-				i < (unsigned int)(getLength(s1) + getLength(s2)); i++)
+		if (s1[j] == '\0' && i == getLength(s1))
 		{
-			*(s + i) = s2[b];
-			b++;
+			c = 1;
+			j = 0;
 		}
+		if (c == 0)
+			r[i] = s1[j];
+		else
+			r[i] = s2[j];
+		j++;
 	}
-	b = 0;
-	for (i = getLength(s1); i < (getLength(s1) + n); i++)
-	{
-		*(s + i) = s2[b];
-		b++;
-	}
-	s[i] = '\0';
-	return (s);
+	r[i] = '\0';
+	return (r);
 }
 /**
-  * nullChecker - checks whether a string is NULL
-  * @t: the string to be checked
-  * Return: empty string if t is NULL. Otherwise return t
-  */
-char *nullChecker(char *t)
-{
-	if (!t)
-	{
-		return ("");
-	}
-	return (t);
-}
-/**
-  * getLength - determines the length of a string
-  * @s: the string whose length is to be determined
-  * Return: the length as an int
+  * getLength - returns the length of a string.
+  * @s: the string whose length is to be determined.
+  * Return: the length.
   */
 int getLength(char *s)
 {
@@ -76,8 +61,6 @@ int getLength(char *s)
 	i = 0;
 
 	while (s[i])
-	{
 		i++;
-	}
 	return (i);
 }
