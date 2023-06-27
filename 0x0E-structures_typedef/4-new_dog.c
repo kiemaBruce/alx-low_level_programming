@@ -23,7 +23,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		n = malloc((getLength(name) + 1) * sizeof(char));
 		if (n == NULL)
 		{
-			free(n);
+			free_all(ptr, n, NULL);
 			return (NULL);
 		}
 		ptr->name = n;
@@ -40,7 +40,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		o = malloc((getLength(owner) + 1) * sizeof(char));
 		if (o == NULL)
 		{
-			free(o);
+			free_all(ptr, ptr->name, o);
 			return (NULL);
 		}
 		ptr->owner = o;
@@ -63,4 +63,16 @@ int getLength(char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+/**
+  * free_all - frees the struct dog.
+  * @d: pointer to the struct.
+  * @n: pointer to the name
+  * @o: pointer to the owner.
+  */
+void free_all(dog_t *d, char *n, char *o)
+{
+	free(d);
+	free(n);
+	free(o);
 }
