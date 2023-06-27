@@ -2,78 +2,57 @@
 
 /**
   * new_dog - creates a new dog.
-  * @name: the name of the dog
-  * @age: the age of the dog
-  * @owner: the dog's owner
-  * Return: a pointer to the struct dog type
+  * @name: name of the dog.
+  * @age: the age of the dog.
+  * @owner: the owner of the dog.
+  * Return: a pointer to the new struct dog.
   */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t new;
-	dog_t *pnew;
+	int i;
+	dog_t *ptr = NULL;
 
-	pnew = &new;
-
-	init_dog2(pnew, name, age, owner);
-	if (pnew == NULL)
+	ptr = malloc(sizeof(dog_t));
+	/*Store a copy of name inside the struct*/
+	if (name == NULL)
 	{
-		return (NULL);
+		ptr->name = NULL;
 	}
-	return (pnew);
+	else
+	{
+		ptr->name = malloc((getLength(name) + 1) * sizeof(char));
+		if (ptr->name == NULL)
+			return (NULL);
+		for (i = 0; i <= getLength(name); i++)
+			((*ptr).name)[i] = name[i];
+	}
+	ptr->age = age;
+	/*Store a copy of owner inside the struct*/
+	if (owner == NULL)
+	{
+		ptr->owner = NULL;
+	}
+	else
+	{
+		ptr->owner = malloc((getLength(owner) + 1) * sizeof(char));
+		if (ptr->owner == NULL)
+			return (NULL);
+		for (i = 0; i <= getLength(owner); i++)
+			((*ptr).owner)[i] = owner[i];
+	}
+	return (ptr);
 }
 /**
- * init_dog2 - initializes a variable of type struct dog
- * @d: pointer to the struct dog
- * @name: name of the dog
- * @age: age of the dog
- * @owner: dog owner
- */
-void init_dog2(struct dog *d, char *name, float age, char *owner)
-{
-	int nlen, ownlen, i;
-
-	nlen = getLength(name);
-	ownlen = getLength(owner);
-
-	d->name = malloc(sizeof(char) * nlen);
-	if ((d->name) == NULL)
-	{
-		return;
-	}
-	/* Copy name string to struct dog */
-	for (i = 0; i < nlen; i++)
-	{
-		(d->name)[i] = name[i];
-	}
-	d->owner = malloc(sizeof(char) * ownlen);
-	if ((d->owner) == NULL)
-	{
-		return;
-	}
-	/* Copy owner string to struct dog */
-	for (i = 0; i < ownlen; i++)
-	{
-		(d->owner)[i] = owner[i];
-	}
-
-	/*(*d).name = name;*/
-	d->age = age;
-	/*(*d).owner = owner;*/
-}
-/**
- * getLength - determines the length of a string
- * @s: the string whose length is to be determined
- * Return: the length as an int
- */
+  * getLength - returns the length of a string.
+  * @s: the string whose length is to be determined.
+  * Return: the length of the string.
+  */
 int getLength(char *s)
 {
 	int i;
 
 	i = 0;
-
 	while (s[i])
-	{
 		i++;
-	}
 	return (i);
 }
