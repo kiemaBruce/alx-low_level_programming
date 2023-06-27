@@ -10,36 +10,44 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int i;
+	char *n, *o;
 	dog_t *ptr = NULL;
 
 	ptr = malloc(sizeof(dog_t));
-	/*Store a copy of name inside the struct*/
 	if (name == NULL)
 	{
 		ptr->name = NULL;
 	}
 	else
 	{
-		ptr->name = malloc((getLength(name) + 1) * sizeof(char));
-		if (ptr->name == NULL)
+		n = malloc((getLength(name) + 1) * sizeof(char));
+		if (n == NULL)
+		{
+			free(n);
 			return (NULL);
+		}
+		ptr->name = n;
 		for (i = 0; i <= getLength(name); i++)
 			((*ptr).name)[i] = name[i];
 	}
 	ptr->age = age;
-	/*Store a copy of owner inside the struct*/
 	if (owner == NULL)
 	{
 		ptr->owner = NULL;
 	}
 	else
 	{
-		ptr->owner = malloc((getLength(owner) + 1) * sizeof(char));
-		if (ptr->owner == NULL)
+		o = malloc((getLength(owner) + 1) * sizeof(char));
+		if (o == NULL)
+		{
+			free(o);
 			return (NULL);
+		}
+		ptr->owner = o;
 		for (i = 0; i <= getLength(owner); i++)
 			((*ptr).owner)[i] = owner[i];
 	}
+
 	return (ptr);
 }
 /**
