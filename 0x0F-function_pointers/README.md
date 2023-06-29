@@ -15,3 +15,10 @@
   does not return 0
 - If no element matches, it returns -1
 - If size <= 0, it returns -1
+## 3-main.c, 3-op_functions.c, 3-get_op_func.c, 3-calc.h
+- These are the files required in order to compile calc.
+- The calc program performs simple math operations on numbers.
+- The format of using it on the terminal is: calc num1 operator num2
+- The program checks for incorrect number of arguments, invalid arguments and
+- attempts to divide (/ or %) by 0. In all these cases the program prints
+- "Error" and exits with an error code.
