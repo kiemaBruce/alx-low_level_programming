@@ -14,14 +14,16 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	(void)l;
 	m = 1;
 	c = 0;
 	/*t = _raiselong(2, (sizeof(unsigned long int) * 8));*/
-	t = m << 31;
+	/*t = m << 32;*/ /**
+			   * This was wrong because unsigned long int is 64 bits
+			   * long and not 32
+			   */
 	l = sizeof(unsigned long int) * 8;
-	/* for (i = 0; i < l; i++) */
-	for (i = 0; i < 32; i++)
+	t = m << (l - 1);
+	for (i = 0; i < l; i++)
 	{
 		r = n & (t >> i);
 		if (r == 0 && c == 1)
