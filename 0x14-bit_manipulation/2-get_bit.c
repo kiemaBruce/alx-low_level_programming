@@ -10,6 +10,7 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int t, m, l, b;
 	unsigned int k, d;
+	char *s;
 
 	/* Get the number of bits we are dealing with */
 	l = sizeof(unsigned long int) * 8;
@@ -17,7 +18,8 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (index > (l - 1))
 		return (-1);
 	m = 1;
-	k = binary_to_uint((const char *)binary_string(n));
+	s = binary_string(n);
+	k = binary_to_uint((const char *)s);
 	/*t = m << (l - 1);*/
 	/**
 	  *To create an appropriate mask d:(which will be casted accordingly)
