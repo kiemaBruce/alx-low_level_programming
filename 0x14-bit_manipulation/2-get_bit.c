@@ -10,7 +10,7 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int t, m, l, b;
 	unsigned int k, d;
-	char *s;
+	char *s, *q;
 
 	/* Get the number of bits we are dealing with */
 	l = sizeof(unsigned long int) * 8;
@@ -19,8 +19,9 @@ int get_bit(unsigned long int n, unsigned int index)
 		return (-1);
 	m = 1;
 	s = binary_string(n);
+	if (s == NULL)
+		return (-1);
 	k = binary_to_uint((const char *)s);
-	/*t = m << (l - 1);*/
 	/**
 	  *To create an appropriate mask d:(which will be casted accordingly)
 	  * First let the 1 be at position equal to length of string, that is
@@ -30,13 +31,18 @@ int get_bit(unsigned long int n, unsigned int index)
 	  * with 64 bits.)
 	  */
 	t = m << (getlength(s) - 1);
-	d = binary_to_uint((const char *)binary_string(t));
+	q = binary_string(t);
+	if (q == NULL)
+		return (-1);
+	d = binary_to_uint((const char *)q);
 	/*b = (unsigned long int)k & (t >> index);*/
 	b = (unsigned long int)k & ((unsigned long int)d >> index);
 	if (b == 0)
 		return (0);
 	else if (b != 0)
 		return (1);
+	free(s);
+	free(q);
 	return (-1);
 }
 /**
@@ -44,7 +50,8 @@ int get_bit(unsigned long int n, unsigned int index)
   * @n: the number to be evaluated.
   * Description: the function doesn't return the preceeding 0's before the
   * first 1 in the binary equivalent.
-  * Return: the string containing the binary equivalent of n.
+  * Return: the string containing the binary equivalent of n. It returns NULL
+  * in case of an error.
   */
 char *binary_string(unsigned long int n)
 {
@@ -55,6 +62,8 @@ char *binary_string(unsigned long int n)
 	/*A better approach would be to use linked lists*/
 	l = sizeof(unsigned long int) * 8;
 	s = malloc(l + 1);
+	if (s == NULL)
+		return (NULL);
 	if (n == 0)
 	{
 		s[0] = '0';
