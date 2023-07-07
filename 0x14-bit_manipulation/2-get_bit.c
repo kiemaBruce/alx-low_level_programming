@@ -58,8 +58,11 @@ char *binary_string(unsigned long int n)
 	unsigned long int l, t, m, c, i, j, r;
 	char *s;
 
-	/*This approach wastes memory as it assigns same memory size for all cases*/
-	/*A better approach would be to use linked lists*/
+	/**
+	  * This approach wastes memory as it assigns same memory size for all
+	  * cases.
+	  * A better approach would be to use linked lists
+	  */
 	l = sizeof(unsigned long int) * 8;
 	s = malloc(l + 1);
 	if (s == NULL)
