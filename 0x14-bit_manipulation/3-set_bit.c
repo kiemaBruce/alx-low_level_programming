@@ -56,7 +56,10 @@ char *binary_string(unsigned long int n)
 	l = sizeof(unsigned long int) * 8;
 	s = malloc(l + 1);
 	if (s == NULL)
+	{
+		free(s);
 		return (NULL);
+	}
 	m = 1;
 	c = j = 0;
 	t = m << (l - 1);
