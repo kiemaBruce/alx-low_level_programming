@@ -31,6 +31,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 		if (r == 1)
 			count++;
 	}
+	free(ns);
+	free(ms);
 	return (count);
 }
 /**
@@ -71,11 +73,13 @@ char *binary_string(unsigned long int n, int flag)
 			s[j] = '0';
 			j++;
 		}
-		if (n == 0)
-		{
-			s[j] = '0';
-			j++;
-		}
+		/**
+		 *if (n == 0)
+		 *{
+		 *	s[j] = '0';
+		 *	j++;
+		 *}
+		 */
 		if (r != 0)
 		{
 			s[j] = '1';
