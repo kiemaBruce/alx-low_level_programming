@@ -8,10 +8,11 @@
   */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int t, m, l, b;
-	unsigned int k, d;
-	char *s, *q;
+	unsigned long int t, m, l, b, k, d;
+	char *s;
 
+	(void)t;
+	(void)d;
 	/* Get the number of bits we are dealing with */
 	l = sizeof(unsigned long int) * 8;
 	/* Return -1 if index is too large */
@@ -21,7 +22,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	s = binary_string(n);
 	if (s == NULL)
 		return (-1);
-	k = binary_to_uint((const char *)s);
+	k = binary_to_ulongint((const char *)s);
 	/**
 	  *To create an appropriate mask d:(which will be casted accordingly)
 	  * First let the 1 be at position equal to length of string, that is
@@ -30,19 +31,16 @@ int get_bit(unsigned long int n, unsigned int index)
 	  * removed. (This is because there will be zeroes as we are dealing
 	  * with 64 bits.)
 	  */
-	t = m << (getlength(s) - 1);
-	q = binary_string(t);
-	if (q == NULL)
-		return (-1);
-	d = binary_to_uint((const char *)q);
-	/*b = (unsigned long int)k & (t >> index);*/
-	b = (unsigned long int)k & ((unsigned long int)d >> index);
+	/*t = m << (getlength(s) - 1);*/
+	/*t = m;*/
+	/*d = binary_to_ulongint((const char *)q);*/
+	/*d = d >> (getlength(s) - 1);	*/
+	b = k & (m << index);
 	if (b == 0)
 		return (0);
 	else if (b != 0)
 		return (1);
 	free(s);
-	free(q);
 	return (-1);
 }
 /**
@@ -95,12 +93,12 @@ char *binary_string(unsigned long int n)
 	return (s);
 }
 /**
-  * binary_to_uint - converts a binary number to an unsigned int.
+  * binary_to_ulongint - converts a binary number to an unsigned int.
   * @b: the string that contains the binary number.
   * Return: the converted number. The function returns 0 if b is NULL or if
   * there is one or more chars in the string b that is not 0 or 1.
   */
-unsigned int binary_to_uint(const char *b)
+unsigned long int binary_to_ulongint(const char *b)
 {
 	unsigned int r, i, l;
 
