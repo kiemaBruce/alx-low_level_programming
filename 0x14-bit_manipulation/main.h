@@ -3,6 +3,8 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
 unsigned int binary_to_uint(const char *b);
 int getlength(char *s);
@@ -15,5 +17,6 @@ char *binary_string(unsigned long int n, int flag);
 int set_bit(unsigned long int *n, unsigned int index);
 int clear_bit(unsigned long int *n, unsigned int index);
 unsigned long int binary_to_ulongint(const char *b);
+unsigned int flip_bits(unsigned long int n, unsigned long int m);
 
 #endif /* MAIN_H */
