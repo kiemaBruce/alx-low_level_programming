@@ -13,5 +13,6 @@ unsigned long int _raiselong(int x, int exp);
 int get_bit(unsigned long int n, unsigned int index);
 char *binary_string(unsigned long int n);
 int set_bit(unsigned long int *n, unsigned int index);
+int clear_bit(unsigned long int *n, unsigned int index);
 
 #endif /* MAIN_H */
