@@ -29,3 +29,7 @@
   another.
 - Prototype: unsigned int flip_bits(unsigned long int n, unsigned long int m);
 - The '/' and '%' operators are not used.
+## 100-get_endianness.c
+- Checks the endianness.
+- Prototype: int get_endianness(void);
+- Returns: 0 if big endian, 1 if little endian.
