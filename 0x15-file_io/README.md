@@ -18,3 +18,14 @@ exists, the permissions aren't changed.
 - If the file already exists, it is truncated.
 - If filename is NULL, the function returns -1.
 - If text_content is NULL, an empty file is created.
+## 2-append_text_to_file.c
+- Appends text at the end of a file.
+- Prototype: int append_text_to_file(const char *filename, char *text_content);
+- where filename is the name of the file and text_content is the NULL terminated
+string to add at the end of the file.
+- Return: 1 on success and -1 on failure.
+- If the file does not exist it is not created.
+- If filename is NULL the function returns -1.
+- If text_content is NULL, nothing is added to the file. The function returns
+1 if the file exists and -1 if the file does not exist or if you do not have
+the required permissions to write the file.
