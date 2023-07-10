@@ -12,7 +12,7 @@
   */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, errno;
+	int fd, errno, c;
 	ssize_t w;
 
 	if (filename == NULL)
@@ -41,7 +41,9 @@ int create_file(const char *filename, char *text_content)
 		if (w == -1 || w != (getlength(text_content) + 1))
 			return (-1);
 	}
-	close(fd);
+	c = close(fd);
+	if (c == -1)
+		return (-1);
 	return (1);
 }
 /**
