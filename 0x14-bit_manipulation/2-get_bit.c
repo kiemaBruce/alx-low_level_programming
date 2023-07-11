@@ -19,7 +19,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (index > (l - 1))
 		return (-1);
 	m = 1;
-	s = binary_string(n);
+	s = binary_string(n, 1);
 	if (s == NULL)
 		return (-1);
 	k = binary_to_ulongint((const char *)s);
@@ -36,48 +36,52 @@ int get_bit(unsigned long int n, unsigned int index)
 	/*d = binary_to_ulongint((const char *)q);*/
 	/*d = d >> (getlength(s) - 1);	*/
 	b = k & (m << index);
+	free(s);
 	if (b == 0)
 		return (0);
 	else if (b != 0)
 		return (1);
-	free(s);
 	return (-1);
 }
 /**
-  * binary_string - returns a binary equivalent of a number.
-  * @n: the number to be evaluated.
-  * Description: the function doesn't return the preceeding 0's before the
-  * first 1 in the binary equivalent.
-  * Return: the string containing the binary equivalent of n. It returns NULL
-  * in case of an error.
-  */
-char *binary_string(unsigned long int n)
+ * binary_string - returns a binary equivalent of a number.
+ * @n: the number to be evaluated.
+ * @flag: used to specify whether the binary to be returned should have the
+ * zeros that preceed the first 1. A flag value of 1 means that the zeros
+ * should be truncated, a flag of two means that the returned string should
+ * contain all the zeros (the number of zeros is determined by the size in
+ * bytes of an unsigned long int in a particular system or environment).
+ * Description: the function returns the preceeding 0's before the
+ * first 1 in the binary equivalent.
+ * Return: the string containing the binary equivalent of n.
+ */
+char *binary_string(unsigned long int n, int flag)
 {
 	unsigned long int l, t, m, c, i, j, r;
 	char *s;
 
-	/**
-	  * This approach wastes memory as it assigns same memory size for all
-	  * cases.
-	  * A better approach would be to use linked lists
-	  */
 	l = sizeof(unsigned long int) * 8;
 	s = malloc(l + 1);
 	if (s == NULL)
 		return (NULL);
-	if (n == 0)
-	{
-		s[0] = '0';
-		s[1] = '\0';
-		return (s);
-	}
 	m = 1;
 	c = j = 0;
 	t = m << (l - 1);
 	for (i = 0; i < l; i++)
 	{
 		r = n & (t >> i);
-		if (r == 0 && c == 1)
+		/*Truncates to remove preceeding zeros*/
+		if (r == 0 && c == 1 && flag == 1)
+		{
+			s[j] = '0';
+			j++;
+		}
+		if (r == 0 && flag == 2)
+		{
+			s[j] = '0';
+			j++;
+		}
+		if (n == 0)
 		{
 			s[j] = '0';
 			j++;
@@ -93,7 +97,7 @@ char *binary_string(unsigned long int n)
 	return (s);
 }
 /**
-  * binary_to_ulongint - converts a binary number to an unsigned int.
+  * binary_to_ulongint - converts a binary number to an unsigned long int.
   * @b: the string that contains the binary number.
   * Return: the converted number. The function returns 0 if b is NULL or if
   * there is one or more chars in the string b that is not 0 or 1.
