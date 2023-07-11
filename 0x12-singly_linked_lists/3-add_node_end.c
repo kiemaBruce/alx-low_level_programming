@@ -1,78 +1,66 @@
 #include "lists.h"
 
 /**
-  * add_node_end - adds a new node at the end of a list_t list.
+  * add_node_end - adds a node at the end of a list_t linked list.
   * @head: pointer to the head of the list_t linked list.
-  * @str: string do be duplicated and its address stored inside the new node.
-  * Return: pointer to the new node.
+  * @str: string that it to be duplicated and then stored inside the new node.
+  * Return: address of the new element, or NULL if it failed.
   */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *last = NULL;
-	list_t *new = NULL;
+	list_t *temp = NULL, *new = NULL;
 
-	if (head == NULL)
-	{
-		return (NULL);
-	}
-	*head = malloc(sizeof(list_t));
-	last = last_element(head);
-	if (last == NULL)
-	{
-		printf("NULL last pointer\n");
-	}
 	new = malloc(sizeof(list_t));
-
 	if (new == NULL)
-	{
 		return (NULL);
-	}
-	last->next = new;
 	if (str == NULL)
 	{
 		new->str = strdup("(nil)");
-	}
-	if (str != NULL)
+		new->len = 0;
+	} else
 	{
 		new->str = strdup(str);
+		new->len = (unsigned int)getlength2((char *)str);
 	}
-	new->len = getLength(str);
 	new->next = NULL;
-	free(*head);
+	/**
+	  * if *head == NULL it means that the the list is empty, i.e. has no
+	  * nodes. Hence we make the head point to the newly created node.
+	  * else means that the list has at least one node. Hence we traverse to
+	  * the last node. Make it point to the new node and then return a
+	  * pointer to the new node.
+	  */
+	if (*head == NULL)
+	{
+		*head = new;
+		return (new);
+	}
+	/* else */
+	temp = *head;
+	while (1)
+	{
+		if (temp->next == NULL)
+		{
+			temp->next = new;
+			break;
+		}
+		temp = temp->next;
+	}
 	return (new);
 }
 /**
-  * last_element - determines the last element of a list_t linked list
-  * @headptr: pointer to the head of the linked list
-  * Return: a pointer to the last element of a list_t linked list
+  * getlength2 - returns the length of a string.
+  * @s: the string whose length is to be determined.
+  * Description: the terminating NULL byte is not counted.
+  * Return: the length of the string.
   */
-list_t *last_element(list_t **headptr)
+int getlength2(char *s)
 {
-	list_t *head = NULL;
+	int l;
 
-	/*item = head->next;*/
-	head = *headptr;
+	l = 0;
 
-	while (head->next != NULL)
-	{
-		head = head->next;
-	}
-	return (head);
-}
-/**
-  * getLength - determines the length of a string
-  * @s: the string whose length is to be determined
-  * Return: the length as an unsigned int
-  */
-unsigned int getLength(const char *s)
-{
-	int i;
-
-	i = 0;
-
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
+	while (s[l])
+		l++;
+	return (l);
 }

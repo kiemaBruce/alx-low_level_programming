@@ -28,5 +28,6 @@ unsigned int getLength(const char *s);
 list_t *add_node_end(list_t **head, const char *str);
 list_t *last_element(list_t **headptr);
 void free_list(list_t *head);
+int getlength2(char *s);
 
 #endif /* MAIN_H */
