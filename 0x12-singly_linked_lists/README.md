@@ -18,3 +18,6 @@
 ## 4-free_list.c
 - Frees a list_t list.
 - Prototype: void free_list(list_t *head);
+## 100-first.c
+- Prints a string before the main function is executed.
+- Prototype: void execute_before_main(void) __attribute__ ((constructor));
