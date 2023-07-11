@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 0-print_list.c
 - Prints all elements of a linked list.
 - Prototype: size_t print_list(const list_t *h);
@@ -19,6 +18,3 @@
 ## 4-free_list.c
 - Frees a list_t list.
 - Prototype: void free_list(list_t *head);
-=======
-This is the repository for my alx low level programming tasks.
->>>>>>> refs/remotes/origin/master
