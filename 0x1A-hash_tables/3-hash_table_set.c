@@ -9,7 +9,7 @@
   */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new = NULL, *temp;
+	hash_node_t *new, *temp;
 	unsigned long int index, hash_code, c;
 
 	if (key == NULL || strlen(key) == 0 || ht == NULL)
@@ -28,12 +28,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	} else
 	{ /* Not empty; update value for key or perform chaining for new key */
 		/* First let's search the branch for the key if it exists */
-		temp = ht->array[index];
+		temp = (ht->array)[index];
 		while (temp != NULL)
 		{
-			if (temp->key == (ht->array[index])->key)
+			if (strcmp(temp->key, key) == 0)
 			{/* Update the value if the key is found */
-				(ht->array[index])->value = (char *)value;
+				/* Remember to free the old value */
+				(ht->array[index])->value = (char *)strdup(value);
+				if ((ht->array[index])->value == NULL)
+					return (0);
 				c = 1;
 				break;
 			}
@@ -64,8 +67,7 @@ hash_node_t *create_new_node(const char *key, const char *value)
 	/* Not sure if I should replace a NULL string with an empty one */
 	if (value == NULL)
 	{
-		value = malloc(1);
-		value = "";
+		value = strdup("");
 	} else
 	{
 		value = strdup(value);
