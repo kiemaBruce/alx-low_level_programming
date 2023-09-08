@@ -18,6 +18,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 	*s = size;
 	table->size = *s;
 	arr = calloc(size, sizeof(hash_node_t *));
-	table->array = &arr;
+	table->array = (hash_node_t **)arr;
 	return (table);
 }
