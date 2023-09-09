@@ -18,8 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (new == NULL)
 		return (0);
 	c = 0; /* Used later to determine whether a key ws found */
-	/* Determine index using hash function */
-	hash_code = hash_djb2((const unsigned char *)key);
+	hash_code = hash_djb2((const unsigned char *)key);/* Get index*/
 	index = hash_code % ht->size;
 	if (ht->array[index] == NULL) /* Empty bucket */
 	{
@@ -27,13 +26,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = new;
 	} else
 	{ /* Not empty; update value for key or perform chaining for new key */
-		/* First let's search the branch for the key if it exists */
-		temp = (ht->array)[index];
+		temp = (ht->array)[index];/*Search for the key in branch*/
 		while (temp != NULL)
 		{
 			if (strcmp(temp->key, key) == 0)
 			{/* Update the value if the key is found */
-				/* Remember to free the old value */
+				free((ht->array[index])->value);/*Free old value*/
 				(ht->array[index])->value = (char *)strdup(value);
 				if ((ht->array[index])->value == NULL)
 					return (0);
@@ -44,8 +42,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		if (c == 0) /* Key not found; add it to the linked list */
 		{
-			new->next = (ht->array[index])->next;
-			(ht->array[index])->next = new;
+			new->next = (ht->array[index]);
+			(ht->array[index]) = new;
 		}
 	}
 	return (1);
