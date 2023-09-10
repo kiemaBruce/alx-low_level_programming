@@ -11,17 +11,26 @@ hash_table_t *hash_table_create(unsigned long int size)
 	hash_node_t **arr;
 	unsigned long int *s, j;
 
+	if (size == 0)
+		return (NULL);
 	table = malloc(sizeof(hash_table_t));
 	if (table == NULL)
 		return (NULL);
 	s = malloc(sizeof(unsigned long int));
 	if (s == NULL)
+	{
+		free(table);
 		return (NULL);
+	}
 	*s = size;
 	table->size = *s;
 	arr = malloc(sizeof(hash_node_t *) * size);
 	if (arr == NULL)
+	{
+		free(table);
+		free(s);
 		return (NULL);
+	}
 	for (j = 0; j < size; j++)
 	{
 		arr[j] = NULL;
