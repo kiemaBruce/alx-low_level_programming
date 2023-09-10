@@ -31,9 +31,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			if (strcmp(temp->key, key) == 0)
 			{/* Update the value if the key is found */
-				free((ht->array[index])->value);/*Free old value*/
-				(ht->array[index])->value = (char *)strdup(value);
-				if ((ht->array[index])->value == NULL)
+				free(temp->value); /*Free old value*/
+				temp->value = (char *)strdup(value);
+				if (temp->value == NULL)
 					return (0);
 				c = 1;
 				break;
