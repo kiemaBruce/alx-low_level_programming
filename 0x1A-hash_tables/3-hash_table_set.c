@@ -10,18 +10,17 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *new, *temp;
-	unsigned long int index, hash_code, c;
+	unsigned long int index, c;
 
 	if (key == NULL || strlen(key) == 0 || ht == NULL)
 		return (0);
-	new = create_new_node(key, value);
-	if (new == NULL)
-		return (0);
 	c = 0; /* Used later to determine whether a key ws found */
-	hash_code = hash_djb2((const unsigned char *)key);/* Get index*/
-	index = hash_code % ht->size;
+	index = hash_djb2((const unsigned char *)key) % ht->size;/*Get index*/
 	if (ht->array[index] == NULL) /* Empty bucket */
 	{
+		new = create_new_node(key, value);
+		if (new == NULL)
+			return (0);
 		new->next = NULL;
 		ht->array[index] = new;
 	} else
@@ -42,6 +41,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		if (c == 0) /* Key not found; add it to the linked list */
 		{
+			new = create_new_node(key, value);
+			if (new == NULL)
+				return (0);
 			new->next = (ht->array[index]);
 			(ht->array[index]) = new;
 		}
