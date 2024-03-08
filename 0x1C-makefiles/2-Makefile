@@ -6,7 +6,7 @@ NAME := school
 all: school
 
 %.o: %.c
-	gcc -c $< -o $@
+	${CC} -c $< -o $@
 
 ${NAME}: ${OBJ}
-	gcc $^ -o $@
+	${CC} $^ -o $@
