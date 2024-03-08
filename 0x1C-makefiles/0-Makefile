@@ -1,6 +1,4 @@
-SRCS := $(wildcard *.c)
-
 all: school
 
-school: ${SRCS}
+school: main.c school.c
 	gcc $^ -o school
