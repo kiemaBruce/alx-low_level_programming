@@ -5,7 +5,7 @@ NAME = school
 RM = rm
 
 all: ${NAME}
-.PHONY: clean
+.PHONY: all clean oclean fclean re
 
 %.o: %.c
 	${CC} -c $< -o $@
@@ -14,12 +14,12 @@ ${NAME}: ${OBJ}
 	${CC} $^ -o $@
 
 clean:
-	rm -f *.swp *~ ${NAME}
+	${RM} -f *.swp *~ ${NAME}
 
 oclean:
-	rm -f *.o
+	${RM} -f *.o
 
 fclean:
-	rm -f *.swp *~ ${NAME} *.o
+	${RM} -f *.swp *~ ${NAME} *.o
 
 re: oclean all
