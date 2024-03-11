@@ -29,6 +29,8 @@ def island_perimeter(grid):
                         next_list = grid[position + 1]
                         if next_list[index] == 0:
                             perimeter += 1
+                    # No need to check for top elements, just add 1
+                    perimeter += 1
                 elif position == len(grid) - 1:  # Last list (edge)
                     # Check left and right elements
                     if index != (len(lis) - 1) and lis[index + 1] == 0:
@@ -39,6 +41,8 @@ def island_perimeter(grid):
                     prev_list = grid[position - 1]
                     if prev_list[index] == 0:
                         perimeter += 1
+                    # No need to check for bottom element, just add 1
+                    perimeter += 1
                 else:  # lists in between
                     # Check left and right elements
                     if index != (len(lis) - 1) and lis[index + 1] == 0:
