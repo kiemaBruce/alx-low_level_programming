@@ -36,11 +36,15 @@ int binary_search_helper(int *array, size_t size, int value,
 	    sub_arr_size, r;
 
 	print_arr(array, start, end); /* print current array */
-	mid = ((int)size / 2) + start;
-	if (array[mid] == value)
+	if (size % 2 == 0)
 	{
-		return (mid);
+		mid = ((int)size / 2) - 1 + start;
+	} else
+	{
+		mid = (int)size / 2 + start;
 	}
+	if (array[mid] == value)
+		return (mid);
 	if (array[mid] < value) /* else */
 	{
 		/*Recursively search right sub-array*/
